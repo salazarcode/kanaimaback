@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('kyc_estado_id');
+            $table->boolean('is_verified')->default(0);     
             $table->rememberToken();
             $table->timestamps();
         });

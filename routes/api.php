@@ -21,3 +21,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('kycestados/{id}', 'KycestadosController@update');
     Route::get('kycestados/drop/{id}', 'KycestadosController@delete');
 });
+
+Route::post('register', 'Api\AuthController@register');
+Route::post('login', 'Api\AuthController@login');
+Route::post('recover', 'Api\AuthController@recover');
