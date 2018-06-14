@@ -20,8 +20,13 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('kycestados/{id?}', 'KycestadosController@retrieve');
     Route::post('kycestados/{id}', 'KycestadosController@update');
     Route::get('kycestados/drop/{id}', 'KycestadosController@delete');
+
+    Route::post('logout','UserController@logoutApi');
 });
 
 Route::post('register', 'Api\AuthController@register');
 Route::post('login', 'Api\AuthController@login');
-Route::post('recover', 'Api\AuthController@recover');
+Route::get('user/verify/{verification_code}', 'Api\AuthController@verifyUser');
+
+//recibe el email para enviarle al usuario un link de recuperación
+//Route::post('recover', 'Api\AuthController@recover');

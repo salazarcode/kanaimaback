@@ -16,8 +16,7 @@ class CreateEmailVerificationsTable extends Migration
         Schema::create('email_verifications', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('token');
-            $table->boolean('is_verified')->default(0);            
+            $table->string('token');       
         });
     }
 
